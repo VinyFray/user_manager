@@ -21,7 +21,6 @@ public class SecurityConfig {
                 request.requestMatchers(HttpMethod.GET, "/user").permitAll()
                         .requestMatchers(HttpMethod.POST,"/user").permitAll()
                         .requestMatchers(HttpMethod.POST,"/user/login").permitAll()
-                        .requestMatchers("/test").permitAll()
                         .anyRequest().authenticated()
         );
         http.csrf(AbstractHttpConfigurer::disable);
@@ -32,4 +31,5 @@ public class SecurityConfig {
     public PasswordEncoder bCryptPasswordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
 }
